@@ -9,9 +9,13 @@ for (var i = 0; i <= sources.length-1; i++) {
      head.appendChild(script);
    })(sources);
 }
-
+var loader = document.createElement('DIV');
+loader.style.backgroundColor = '#fb4';
+loader.innerHTML = '...';
+body.appendChild(loader);
 window.setTimeout(function(){
  ( function($) {
+    $(loader).remove();
     $.expr[':'].contains = $.expr.createPseudo(function(arg){
       return function(elem){
         return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
